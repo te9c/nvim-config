@@ -24,6 +24,4 @@ opt.scrolloff = 2 -- Minimum amount of lines above and below the cursor.
 
 opt.undofile = true -- Save undo history to a file to recover it after reentering
 
--- disable netrw at the very start of your init.lua
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- Tree sitter folding. See lua/plugins/tree-sitter.lua

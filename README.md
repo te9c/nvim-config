@@ -40,3 +40,5 @@ familliar with it from my astronvim config.
  something different.
  - [telescope](https://github.com/nvim-telescope/telescope.nvim). Fuzzy finder.
  Dependencies: [plenary](https://github.com/nvim-lua/plenary.nvim)
+ - [toggleterm](https://github.com/akinsho/toggleterm.nvim). Plugin for
+ managing multiple terminal windows.

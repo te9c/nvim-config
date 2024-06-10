@@ -21,6 +21,12 @@ vim.keymap.set('n', '<C-h>', '<C-w>h')
 vim.keymap.set('n', '<C-j>', '<C-w>j')
 vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
+-- Terminal window navigation
+vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]])
+vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]])
+vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]])
+vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]])
+vim.keymap.set('t', 'JJ', '<C-\\><C-n>')
 
 -- Buffer controle
 vim.keymap.set('n', '[b', ':bprevious<CR>', { silent = true })
