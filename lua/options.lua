@@ -16,9 +16,14 @@ opt.expandtab = true -- In insertmode replace <Tab> with appropriate number of s
 
 opt.signcolumn = "number"
 
+-- Search patterns
 opt.ignorecase = true -- It will basically ignore case, untill you entered capital letter in your search pattern
 opt.smartcase = true
 
 opt.scrolloff = 2 -- Minimum amount of lines above and below the cursor.
 
 opt.undofile = true -- Save undo history to a file to recover it after reentering
+
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
