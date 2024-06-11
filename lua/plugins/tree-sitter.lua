@@ -5,9 +5,9 @@ return {
         local configs = require("nvim-treesitter.configs")
 
         -- Tree sitter based folding.
-        vim.opt.foldmethod=expr
-        vim.opt.foldexpr="nvim_treesitter#foldexpr()"
-        vim.opt.foldenable=false
+        -- vim.opt.foldmethod=expr
+        -- vim.opt.foldexpr="nvim_treesitter#foldexpr()"
+        -- vim.opt.foldenable=false
 
         configs.setup({
             ensure_installed = { "c", "cpp", "c_sharp", "lua", "vimdoc"},

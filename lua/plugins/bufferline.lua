@@ -11,6 +11,13 @@ return {
                 style_preset = bufferline.style_preset.minimal,
                 -- numbers = "ordinal", -- Disabled until i find out way to switch buffers based on number
                 show_buffer_close_icons = false,
+                offsets = {
+                    {
+                        filetype = "NvimTree",
+                        text = "File explorer (g?)",
+                        text_align = "left"
+                    }
+                }
             }
         }
     end

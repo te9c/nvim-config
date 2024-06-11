@@ -1,0 +1,37 @@
+return {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+    },
+    config = function()
+        require("telescope").setup({
+            defaults = {
+                mappings = {
+                    i = {
+                        ["<C-j>"] = "move_selection_next",
+                        ["<C-k>"] = "move_selection_previous",
+                        ["<C-h>"] = "preview_scrolling_left",
+                        ["<C-l>"] = "preview_scrolling_right"
+                    }
+                }
+            },
+            extensions = {
+                fzf = {
+                    fuzzy = true,
+                    override_generic_sorter = true,
+                    override_file_sorter = true,
+                    case_mode = "smartcase",
+                }
+            }
+        })
+
+        -- Keymaps section
+        local builtin = require('telescope.builtin')
+        vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "find files" }) -- Find files
+        vim.keymap.set('n', '<leader>fw', builtin.live_grep, { desc = "find words" }) -- Live grep
+        vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "find buffers" }) -- find buffers
+        vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "find help" }) -- find help tags
+        vim.keymap.set('n', '<leader>fm', builtin.man_pages, { desc = "find man pages" }) -- man pages. Actually it's works very slow, so it's useless.
+        vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = "find keymaps" }) -- find keymaps
+    end
+}

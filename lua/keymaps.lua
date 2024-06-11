@@ -1,5 +1,9 @@
 -- See :help lua-guide-mappings
 
+-- TODO: add function that checks if module is available and setup mappings.
+-- Because I don't really like that my keymaps is distributed across many files.
+-- They are all should be in this file.
+
 vim.g.mapleader = " " -- Set mapleader to space
 vim.g.maplocalleader = "\\" -- local leader i dunno, set this because of lazy nvim
 
@@ -29,12 +33,13 @@ vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]])
 vim.keymap.set('t', 'JJ', '<C-\\><C-n>')
 
 -- Buffer controle
-vim.keymap.set('n', '[b', ':bprevious<CR>', { silent = true })
-vim.keymap.set('n', ']b', ':bnext<CR>', { silent = true })
-vim.keymap.set('n', '<leader>c', ':bd<CR>', { silent = true })
+vim.keymap.set('n', '[b', ':bprevious<CR>', { silent = true, desc = "Go to the previous buffer" })
+vim.keymap.set('n', ']b', ':bnext<CR>', { silent = true, desc = "Go to the next buffer" })
+-- vim.keymap.set('n', '<leader>c', ':bd<CR>', { silent = true, desc = "Close current buffer" })
+-- This keymap is defined in lua/plugins/mini-bufremove.lua
 
 -- Tab control
 -- I personally doesn't often use tabs, but i will keep this mappings, if i would like to try tab functional.
 -- I would keep meaning tabs as vim-tabs and will not download scope.nvim plugin, to change the way tabs was designed in vim.
-vim.keymap.set('n', '[t', ':tabprevious<CR>', { silent = true })
-vim.keymap.set('n', ']t', ':tabnext<CR>', { silent = true })
+vim.keymap.set('n', '[t', ':tabprevious<CR>', { silent = true, desc = "Go to the previous tab" })
+vim.keymap.set('n', ']t', ':tabnext<CR>', { silent = true, desc = "Go to the next tab" })
