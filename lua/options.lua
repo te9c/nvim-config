@@ -8,6 +8,8 @@ vim.g.loaded_netrwPlugin = 1
 
 opt.background = "dark" -- "dark" or "light", used for highlight colors
 vim.cmd.colorscheme("desert") -- setting colorscheme
+vim.cmd("hi StatusLine ctermbg=black ctermfg=white guifg=white guibg=black")
+vim.cmd("hi TabLineFill guifg=white guibg=black ctermbg=black ctermfg=white")
 
 opt.number = true -- Show line number
 opt.relativenumber = true -- Show relative line number to the cursor
@@ -32,3 +34,5 @@ opt.cmdheight = 0 -- Auto hide cmdline in statusline.
 opt.laststatus = 3 -- Show only one global statusline at the bottom of the window instead of printing it for each window
 
 -- Tree sitter folding. See lua/plugins/tree-sitter.lua
+
+opt.showtabline = 2 -- Always show tabline. Required for heirline bufferline to work

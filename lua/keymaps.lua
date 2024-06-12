@@ -31,6 +31,8 @@ vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]])
 vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]])
 vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]])
 vim.keymap.set('t', 'JJ', '<C-\\><C-n>')
+-- There also keybinding for opening terminal with toggleterm.
+-- See lua/plugins/toggleterm.lua
 
 -- Buffer controle
 vim.keymap.set('n', '[b', ':bprevious<CR>', { silent = true, desc = "Go to the previous buffer" })

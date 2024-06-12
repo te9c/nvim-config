@@ -3,11 +3,15 @@
 
 return {
     "nvim-lualine/lualine.nvim",
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    dependencies = { 'nvim-tree/nvim-web-devicons', "nvim-lua/lsp-status.nvim" },
     opts = {
         options = {
+            theme = 'gruvbox_dark',
             section_separators = { left = '', right = '' },
             component_separators = { left = '|', right = '|' },
+        },
+        sections = {
+            lualine_x = { 'filetype', "require'lsp-status'.status()" }
         }
     },
     config = true
