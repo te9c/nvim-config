@@ -73,6 +73,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 
 -- Package control
-vim.keymap.set('n', '<leader>kl', ':Lazy<CR>', { silent = true, desc = "Show Lazy" })
-vim.keymap.set('n', '<leader>ks', ':Lazy sync<CR>', { silent = true, desc = "Sync lazy" })
+vim.keymap.set('n', '<leader>ks', ':Lazy<CR>', { silent = true, desc = "Show Lazy" })
+vim.keymap.set('n', '<leader>kS', ':Lazy sync<CR>', { silent = true, desc = "Sync lazy" })
 vim.keymap.set('n', '<leader>km', ':Mason<CR>', { silent = true, desc = "Show Mason" })
