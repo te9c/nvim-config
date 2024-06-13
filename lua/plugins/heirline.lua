@@ -33,18 +33,25 @@ return {
                 heirline_components.component.fill(),
                 heirline_components.component.lsp(),
                 heirline_components.component.treesitter({ hl = { fg = "#8DB600" } }),
-                heirline_components.component.nav { surround = { separator = "left" } }
+                -- heirline_components.component.nav { surround = { separator = "left" } }
+                heirline_components.component.nav()
             },
-            tabline = {
-                hl = { fg = "fg", bg = "bg" },
-                heirline_components.component.tabline_conditional_padding(),
-                heirline_components.component.tabline_buffers({
-                    close_button = false,
-                }),
-
-                heirline_components.component.fill { hl = { bg = "tabline_bg" } },
-                heirline_components.component.tabline_tabpages()
-            },
+            -- statuscolumn = { -- UI left column
+            --     init = function(self) self.bufnr = vim.api.nvim_get_current_buf() end,
+            --     heirline_components.component.foldcolumn(),
+            --     heirline_components.component.numbercolumn(),
+            --     heirline_components.component.signcolumn(),
+            -- },
+            -- tabline = {
+            --     hl = { fg = "fg", bg = "bg" },
+            --     heirline_components.component.tabline_conditional_padding(),
+            --     heirline_components.component.tabline_buffers({
+            --         close_button = false,
+            --     }),
+            --
+            --     heirline_components.component.fill { hl = { bg = "tabline_bg" } },
+            --     heirline_components.component.tabline_tabpages()
+            -- },
             opts = {
                 colors = heirline_components.hl.get_colors()
             }

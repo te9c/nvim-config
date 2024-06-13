@@ -34,5 +34,8 @@ opt.cmdheight = 0 -- Auto hide cmdline in statusline.
 opt.laststatus = 3 -- Show only one global statusline at the bottom of the window instead of printing it for each window
 
 -- Tree sitter folding. See lua/plugins/tree-sitter.lua
+vim.opt.foldmethod="expr"
+vim.opt.foldexpr="nvim_treesitter#foldexpr()"
+vim.opt.foldenable=false
 
 opt.showtabline = 2 -- Always show tabline. Required for heirline bufferline to work

@@ -45,3 +45,28 @@ vim.keymap.set('n', ']b', ':bnext<CR>', { silent = true, desc = "Go to the next 
 -- I would keep meaning tabs as vim-tabs and will not download scope.nvim plugin, to change the way tabs was designed in vim.
 vim.keymap.set('n', '[t', ':tabprevious<CR>', { silent = true, desc = "Go to the previous tab" })
 vim.keymap.set('n', ']t', ':tabnext<CR>', { silent = true, desc = "Go to the next tab" })
+
+-- LSP control
+vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+
+        if client.supports_method("textDocument/rename") then
+            vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, { desc = "rename current symbol" })
+        end
+        if client.supports_method("textDocument/codeAction") then
+            vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, { desc = "Code action" })
+        end
+        if client.supports_method("textDocument/references") then
+            vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, { desc = "Go to references" })
+        end
+        if client.supports_method("textDocument/definition") then
+            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = "Go to defenition" })
+        end
+        if client.supports_method("textDocument/declaration") then
+            vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = "Go to declaration" })
+        end
+        vim.keymap.set('n', '<leader>ld', vim.diagnostic.open_float, { desc = "Diagnostics hover" })
+    end
+})
+-- CTRL-S in insert mode - signature help (default)
