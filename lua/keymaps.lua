@@ -70,3 +70,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 })
 -- CTRL-S in insert mode - signature help (default)
+
+
+-- Package control
+vim.keymap.set('n', '<leader>kl', ':Lazy<CR>', { silent = true, desc = "Show Lazy" })
+vim.keymap.set('n', '<leader>ks', ':Lazy sync<CR>', { silent = true, desc = "Sync lazy" })
+vim.keymap.set('n', '<leader>km', ':Mason<CR>', { silent = true, desc = "Show Mason" })
