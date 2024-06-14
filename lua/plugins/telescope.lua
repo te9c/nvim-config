@@ -33,5 +33,8 @@ return {
         vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "find help" }) -- find help tags
         vim.keymap.set('n', '<leader>fm', builtin.man_pages, { desc = "find man pages" }) -- man pages. Actually it's works very slow, so it's useless.
         vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = "find keymaps" }) -- find keymaps
+        vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = "find diagnostics" })
+        vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, { desc = "find lsp symbols in document" })
+        vim.keymap.set('n', '<leader>fS', builtin.lsp_workspace_symbols, { desc = "find lsp symbols in workspace" })
     end
 }

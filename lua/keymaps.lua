@@ -76,3 +76,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 vim.keymap.set('n', '<leader>ks', ':Lazy<CR>', { silent = true, desc = "Show Lazy" })
 vim.keymap.set('n', '<leader>kS', ':Lazy sync<CR>', { silent = true, desc = "Sync lazy" })
 vim.keymap.set('n', '<leader>km', ':Mason<CR>', { silent = true, desc = "Show Mason" })
+
+
+-- Keymaps for Trouble.
+-- See lua/plugins/trouble.lua

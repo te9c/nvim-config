@@ -29,11 +29,6 @@ familliar with it from my astronvim config.
  - [markdown-preview](https://github.com/iamcco/markdown-preview.nvim).
  Markdown preview in browser. Usage: :MarkdownPreviewToggle, :MarkdownPreview,
  :MarkdownPreviewStop
- - [presence](https://github.com/andweeb/presence.nvim). Adds support for
- discord rich presence. This plugin is just for fun and could be disabled for
- faster startup time. Yeah, i know that it's contradicts with my statement
- about keeping this configuration lightweight, but fuck off. This is my config.
- *Disabled.*
  - [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua). File explorer. I
  will try to use this, instead of
  [neotree](https://github.com/nvim-neo-tree/neo-tree.nvim) to try to use
@@ -42,3 +37,13 @@ familliar with it from my astronvim config.
  Dependencies: [plenary](https://github.com/nvim-lua/plenary.nvim)
  - [toggleterm](https://github.com/akinsho/toggleterm.nvim). Plugin for
  managing multiple terminal windows.
+ - [autopairs](https://github.com/windwp/nvim-autopairs). Autopairs. Very
+ convinient.
+ - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp). Autocompletion engine
+ plugin. I've tried to use [coq_nvim](https://github.com/ms-jpq/coq_nvim), but
+ IMHO nvim-cmp is better, cause main advantage of coq_nvim is speed, but
+ nvim-cmp is works fast too.
+ - [gitsigns](https://github.com/lewis6991/gitsigns.nvim). Adds git signs in statuscolumn. Looks like useful plugin, but I need to see it's docs to understand all of this colors. *RESEARCH REQUIRED*.
+ - [heirline](https://github.com/rebelot/heirline.nvim), [heirline-components](https://github.com/Zeioth/heirline-components.nvim). Engine for creating custom statusbars, winbars, statuscolumns. Very hard plugin to configure, but it gives cool statusbars at the end.
+ - [highlight-colors](https://github.com/brenoprata10/nvim-highlight-colors). Adds real-time color highlighting.
+ - [lspconfig](https://github.com/neovim/nvim-lspconfig)
