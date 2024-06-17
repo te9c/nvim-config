@@ -1,3 +1,9 @@
+-- Pretty much bloatware for now.
+-- Doesnt really use that often.
+-- And certainly I am not utilizing all it's features.
+--
+-- Candidate for removal
+
 return {
     "folke/trouble.nvim",
     opts = {
@@ -6,27 +12,27 @@ return {
     cmd = "Trouble",
     keys = {
         {
-            "<leader>tt",
+            "<leader>bt",
             "<cmd>Trouble diagnostics toggle<cr>",
             desc = "Diagnostics (Trouble)",
         },
         {
-            "<leader>tT",
+            "<leader>bT",
             "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
             desc = "Buffer Diagnostics (Trouble)",
         },
         {
-            "<leader>ts",
+            "<leader>bs",
             "<cmd>Trouble symbols toggle focus=false<cr>",
             desc = "Toggle symbols (Trouble)"
         },
         {
-            "<leader>tl",
+            "<leader>bl",
             "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
             desc = "Toggle lsp defenitions/references/... (Trouble)"
         },
         {
-            "<leader>tq",
+            "<leader>bq",
             "<cmd>Trouble todo toggle<cr>",
             desc = "Quickfix list (Trouble)"
         }

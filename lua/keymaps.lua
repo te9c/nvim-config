@@ -36,7 +36,9 @@ vim.keymap.set('t', 'JJ', '<C-\\><C-n>')
 
 -- Buffer controle
 vim.keymap.set('n', '[b', ':bprevious<CR>', { silent = true, desc = "Go to the previous buffer" })
+vim.keymap.set('n', '<C-n>', ':bprevious<CR>', { silent = true, desc = "Go to the previous buffer" })
 vim.keymap.set('n', ']b', ':bnext<CR>', { silent = true, desc = "Go to the next buffer" })
+vim.keymap.set('n', '<C-m>', ':bnext<CR>', { silent = true, desc = "Go to the next buffer" })
 -- vim.keymap.set('n', '<leader>c', ':bd<CR>', { silent = true, desc = "Close current buffer" })
 -- This keymap is defined in lua/plugins/mini-bufremove.lua
 
@@ -49,24 +51,24 @@ vim.keymap.set('n', ']t', ':tabnext<CR>', { silent = true, desc = "Go to the nex
 -- LSP control
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        -- I don't check if client is support these methods
+        -- because it seems to be broken.
+        -- At least with omnisharp it doesnt work :d
+        -- I don't know why, maybe something with initialization
 
-        if client.supports_method("textDocument/rename") then
-            vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, { desc = "rename current symbol" })
-        end
-        if client.supports_method("textDocument/codeAction") then
-            vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, { desc = "Code action" })
-        end
-        if client.supports_method("textDocument/references") then
-            vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, { desc = "Go to references" })
-        end
-        if client.supports_method("textDocument/definition") then
-            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = "Go to defenition" })
-        end
-        if client.supports_method("textDocument/declaration") then
-            vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = "Go to declaration" })
-        end
-        vim.keymap.set('n', '<leader>ld', vim.diagnostic.open_float, { desc = "Diagnostics hover" })
+        -- local client = vim.lsp.get_client_by_id(args.data.client_id)
+        local bufnr = args.buf
+        local builtin = require('telescope.builtin')
+
+        vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, { desc = "rename current symbol", buffer = bufnr })
+        vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, { desc = "Code action", buffer = bufnr })
+        vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, { desc = "Format buffer", buffer = bufnr })
+        vim.keymap.set('n', 'gr', builtin.lsp_references, { desc = "Go to references", buffer = bufnr })
+        vim.keymap.set('n', 'gd', builtin.lsp_definitions, { desc = "Go to defenition", buffer = bufnr })
+        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = "Go to declaration", buffer = bufnr })
+        vim.keymap.set('n', 'gi', builtin.lsp_implementations, { desc = "Go to implemenation", buffer = bufnr })
+
+        vim.keymap.set('n', '<leader>ld', vim.diagnostic.open_float, { desc = "Diagnostics hover", buffer = bufnr })
     end
 })
 -- CTRL-S in insert mode - signature help (default)
@@ -76,7 +78,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 vim.keymap.set('n', '<leader>ks', ':Lazy<CR>', { silent = true, desc = "Show Lazy" })
 vim.keymap.set('n', '<leader>kS', ':Lazy sync<CR>', { silent = true, desc = "Sync lazy" })
 vim.keymap.set('n', '<leader>km', ':Mason<CR>', { silent = true, desc = "Show Mason" })
-
 
 -- Keymaps for Trouble.
 -- See lua/plugins/trouble.lua

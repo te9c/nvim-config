@@ -1,0 +1,12 @@
+-- Fun plugin for discord rich presence integration.
+-- I will try it for a couple days and then may be disable it :p
+return {
+    "IogaMaster/neocord",
+    event = "VeryLazy",
+    opts = {
+        logo = "https://w.wallhaven.cc/full/v9/wallhaven-v9rrz8.jpg",
+        -- logo = "https://app2top.ru/wp-content/uploads/2018/12/47007602_349721069125729_3156937027123937280_n-500x500.jpg", -- nikitos bun
+        main_image = "logo",
+        logo_tooltip = "Spent 10 hours to automize feature to save 1 second"
+    }
+}

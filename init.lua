@@ -12,8 +12,12 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require('options')
 require('keymaps')
+require('options')
+require('autocmds')
+
+-- vim.cmd("source lua/HelpCurwin.vim") -- Adds :HelpCurwin command to show
+                                     -- help window in current window
 
 -- This should be AFTER my config
 require("lazy").setup(

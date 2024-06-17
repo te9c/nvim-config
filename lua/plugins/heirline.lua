@@ -53,7 +53,16 @@ return {
             --     heirline_components.component.tabline_tabpages()
             -- },
             -- winbar = {
-            --     heirline_components.component.breadcrumbs()
+            --     init = function(self)
+            --         self.bufnr = vim.api.nvim_get_current_buf()
+            --     end,
+            --     fallthrough = false,
+            --     { -- inactive winbar
+            --         condition = function () 
+            --             return not conditions.is_active()
+            --         end,
+            --         heirline_components.component.file_info({ filename = {}, filetype = false })
+            --     }
             -- },
             opts = {
                 colors = heirline_components.hl.get_colors()

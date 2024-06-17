@@ -16,6 +16,21 @@ return {
 
                 local capabilities = require('cmp_nvim_lsp').default_capabilities()
                 require("lspconfig")[server_name].setup {
+                    capabilities = capabilities,
+                }
+            end,
+            ["lua_ls"] = function ()
+                local lspconfig = require("lspconfig")
+                local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+                lspconfig.lua_ls.setup {
+                    settings = {
+                        Lua = {
+                            diagnostics = {
+                                globals = { "vim" }
+                            }
+                        }
+                    },
                     capabilities = capabilities
                 }
             end,

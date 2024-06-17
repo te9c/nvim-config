@@ -1,5 +1,7 @@
 -- For lua neovim guide see :help lua-guide
 
+require('user.compile-and-run')
+
 local opt = vim.opt
 -- disabling netrw cuz of NvimTree plugin.
 vim.g.loaded_netrw       = 1
@@ -7,8 +9,8 @@ vim.g.loaded_netrwPlugin = 1
 
 opt.background = "dark" -- "dark" or "light", used for highlight colors
 vim.cmd.colorscheme("desert") -- setting colorscheme
-vim.cmd("hi StatusLine ctermbg=black ctermfg=white guifg=white guibg=black")
-vim.cmd("hi TabLineFill guifg=white guibg=black ctermbg=black ctermfg=white")
+vim.cmd("hi StatusLine ctermbg=black ctermfg=white guifg=white guibg=#000001")
+vim.cmd("hi TabLineFill guifg=white guibg=#000001 ctermbg=black ctermfg=white")
 
 opt.number = true -- Show line number
 opt.relativenumber = true -- Show relative line number to the cursor
