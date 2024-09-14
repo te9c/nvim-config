@@ -9,6 +9,7 @@ return {
         configs.setup({
             ensure_installed = { "c", "cpp", "c_sharp", "lua", "vimdoc"},
             auto_install = true,
+            ignore_install = { "latex" },
             highlight = {
                 enable = true
             },

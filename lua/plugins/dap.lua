@@ -96,6 +96,7 @@ return {
                 runInTerminal = true,
             }
         }
+        dap.configurations.c = dap.configurations.cpp
 
         -- KEYMAPS
         vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint, { desc = "DAP Toggle breakpoint" })

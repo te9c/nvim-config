@@ -35,7 +35,7 @@ opt.laststatus = 3 -- Show only one global statusline at the bottom of the windo
 
 -- Tree sitter folding. See lua/plugins/tree-sitter.lua
 opt.foldmethod="expr"
-opt.foldexpr="nvim_treesitter#foldexpr()"
+-- opt.foldexpr="nvim_treesitter#foldexpr()"
 opt.foldenable=true
 opt.foldlevel=999
 
@@ -44,3 +44,5 @@ opt.showtabline = 2 -- Always show tabline. Required for heirline bufferline to 
 -- Statuscolumn
 opt.foldcolumn = "auto"
 opt.signcolumn = "yes"
+
+vim.g.tex_flavor = "latex" -- for correct filetype recognititon for .tex files (for snippets)

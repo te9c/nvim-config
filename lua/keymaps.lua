@@ -5,7 +5,13 @@
 -- They are all should be in this file.
 
 vim.g.mapleader = " " -- Set mapleader to space
-vim.g.maplocalleader = "\\" -- local leader i dunno, set this because of lazy nvim
+vim.g.maplocalleader = "," -- local leader i dunno, set this because of lazy nvim
+
+vim.keymap.set('i', '<C-c>', '<Esc>')
+-- vim.keymap.set('n', 'd', '<Left>')
+-- vim.keymap.set('n', 'h', '<Down>')
+-- vim.keymap.set('n', 't', '<Up>')
+-- vim.keymap.set('n', 'n', '<Right>')
 
 -- There is keymap jj to <esc> but it is in better escape plugin.
 
@@ -15,10 +21,13 @@ vim.keymap.set('n', 'O', 'O<esc>') -- o/O will not enter insert mode. Faster add
 -- Clipboard control
 -- I decided to try to use different keybindings for system clipboard
 -- I guess it could help me to more effectively deal with clipboard problems
-vim.keymap.set('n', '<leader>y', '"+y') -- Copying
-vim.keymap.set('v', '<leader>y', '"+y')
-vim.keymap.set('n', '<leader>p', '"+p') -- Pasting
-vim.keymap.set('v', '<leader>p', '"+p')
+-- "" blank register is pointing to the last used register. See `:h registers`
+vim.keymap.set('n', '<leader>y', '"*y') -- Copying
+vim.keymap.set('v', '<leader>y', '"*y')
+vim.keymap.set('n', '<leader>p', '"*p') -- Pasting
+vim.keymap.set('v', '<leader>p', '"*p')
+vim.keymap.set('n', 'yaa', ":%y<cr><cr>", { silent = true, desc = "Copy all buffer to the clipboard"})
+vim.keymap.set('n', '<leader>yaa', ":%y*<cr><cr>", { silent = true, desc = "Copy all buffer to the clipboard"})
 
 -- Faster window navigation
 vim.keymap.set('n', '<C-h>', '<C-w>h')
@@ -35,10 +44,12 @@ vim.keymap.set('t', 'JJ', '<C-\\><C-n>')
 -- See lua/plugins/toggleterm.lua
 
 -- Buffer controle
+
 vim.keymap.set('n', '[b', ':bprevious<CR>', { silent = true, desc = "Go to the previous buffer" })
-vim.keymap.set('n', '<C-n>', ':bprevious<CR>', { silent = true, desc = "Go to the previous buffer" })
+vim.keymap.set('n', '<C-*>', ':bprevious<CR>', { silent = true, desc = "Go to the previous buffer" })
 vim.keymap.set('n', ']b', ':bnext<CR>', { silent = true, desc = "Go to the next buffer" })
-vim.keymap.set('n', '<C-m>', ':bnext<CR>', { silent = true, desc = "Go to the next buffer" })
+vim.keymap.set('n', '<C-)>', ':bnext<CR>', { silent = true, desc = "Go to the next buffer" })
+
 -- vim.keymap.set('n', '<leader>c', ':bd<CR>', { silent = true, desc = "Close current buffer" })
 -- This keymap is defined in lua/plugins/mini-bufremove.lua
 

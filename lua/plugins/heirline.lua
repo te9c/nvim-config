@@ -61,7 +61,19 @@ return {
             --         condition = function () 
             --             return not conditions.is_active()
             --         end,
-            --         heirline_components.component.file_info({ filename = {}, filetype = false })
+            --         hl = { fg = "fg", bg = "bg" },
+            --         heirline_components.component.file_info({
+            --             file_icon = {
+            --                 hl = .hl.file_icon("winbar"),
+            --                 padding = { left = 0 },
+            --             },
+            --             filename = {},
+            --             filetype = false,
+            --             file_read_only = false,
+            --             hl = status.hl.get_attributes("winbarnc", true),
+            --             surround = false,
+            --             update = "BufEnter",
+            --         })
             --     }
             -- },
             opts = {

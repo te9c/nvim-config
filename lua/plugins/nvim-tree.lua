@@ -7,12 +7,12 @@ return {
         require("nvim-tree").setup({
             -- NOTE: This is project.nvim requirement for
             -- nvim-tree integration.
-            sync_root_with_cwd = true,
-            respect_buf_cwd = true,
-            update_focused_file = {
-                enable = true,
-                update_root = true,
-            }
+            sync_root_with_cwd = false,
+            respect_buf_cwd = false,
+            -- update_focused_file = {
+            --     enable = true,
+            --     update_root = true,
+            -- }
         })
 
         local api = require("nvim-tree.api")

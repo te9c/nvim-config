@@ -5,6 +5,7 @@ return {
         "hrsh7th/cmp-buffer", -- source: buffer
         "hrsh7th/cmp-path", -- source: filesystem path
         "hrsh7th/cmp-cmdline", -- source: cmdline suggestions
+        "micangl/cmp-vimtex", -- source: vimtex
 
         'L3MON4D3/LuaSnip', -- Snippet engine
         "saadparwaiz1/cmp_luasnip", -- Snippet engine support for nvim-cmp
@@ -19,7 +20,7 @@ return {
             --     -- REQUIRED - you must specify a snippet engine
                 expand = function(args)
             --         -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-                    -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+                        require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
             --         -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
             --         -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
             --         -- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
@@ -44,6 +45,7 @@ return {
                 -- { name = 'snippy' }, -- For snippy users.
             }, {
                 { name = 'buffer' },
+                { name = 'vimtex' }
             }),
 
             view = {
@@ -55,8 +57,9 @@ return {
                     menu = ({
                         buffer = "[Buffer]",
                         nvim_lsp = "[LSP]",
-                        -- luasnip = "[LuaSnip]",
+                        luasnip = "[LuaSnip]",
                         latex_symbols = "[Latex]",
+                        vimtex = "[VimTeX]"
                     })
                 })
             }

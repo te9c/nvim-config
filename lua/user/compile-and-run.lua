@@ -13,7 +13,6 @@
 
 -- C++ Compile and run
 function StripExtension(path) return path:sub(0, #path - 4) end
-
 function GetFileName(url) return url:match "^.+/(.+)$" end
 
 local compilatorCommand = "g++"

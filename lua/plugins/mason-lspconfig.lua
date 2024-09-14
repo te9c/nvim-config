@@ -15,6 +15,7 @@ return {
             function (server_name) -- default handler (optional)
 
                 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+                capabilities.textDocument.completion.completionItem.snippetSupport = false
                 require("lspconfig")[server_name].setup {
                     capabilities = capabilities,
                 }
