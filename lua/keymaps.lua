@@ -56,8 +56,8 @@ vim.keymap.set('n', '<C-)>', ':bnext<CR>', { silent = true, desc = "Go to the ne
 -- Tab control
 -- I personally doesn't often use tabs, but i will keep this mappings, if i would like to try tab functional.
 -- I would keep meaning tabs as vim-tabs and will not download scope.nvim plugin, to change the way tabs was designed in vim.
-vim.keymap.set('n', '[t', ':tabprevious<CR>', { silent = true, desc = "Go to the previous tab" })
-vim.keymap.set('n', ']t', ':tabnext<CR>', { silent = true, desc = "Go to the next tab" })
+vim.keymap.set('n', '<C-t><C-*>', ':tabprevious<CR>', { silent = true, desc = "Go to the previous tab" })
+vim.keymap.set('n', '<C-t><C-)>', ':tabnext<CR>', { silent = true, desc = "Go to the next tab" })
 
 -- LSP control
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -89,6 +89,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
 vim.keymap.set('n', '<leader>ks', ':Lazy<CR>', { silent = true, desc = "Show Lazy" })
 vim.keymap.set('n', '<leader>kS', ':Lazy sync<CR>', { silent = true, desc = "Sync lazy" })
 vim.keymap.set('n', '<leader>km', ':Mason<CR>', { silent = true, desc = "Show Mason" })
+
+vim.api.nvim_create_autocmd({'BufEnter', 'BufWinEnter'}, {
+    pattern = {"*.tex"},
+    callback = function (args)
+        local bufnr = args.buf
+        vim.keymap.set('n', ",vt", ':VimtexTocToggle<CR>', {buffer = bufnr, silent = true})
+    end
+})
 
 -- Keymaps for Trouble.
 -- See lua/plugins/trouble.lua

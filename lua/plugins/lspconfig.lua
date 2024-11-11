@@ -3,5 +3,7 @@ return {
     -- opts = {
     --     autostart = false
     -- },
-    -- config = false
+    config = function ()
+        require'lspconfig'.kotlin_language_server.setup{}
+    end
 }

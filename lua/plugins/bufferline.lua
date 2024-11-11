@@ -9,8 +9,12 @@ return {
         bufferline.setup {
             options = {
                 style_preset = bufferline.style_preset.minimal,
+                -- separator_style = "slope",
                 -- numbers = "ordinal", -- Disabled until i find out way to switch buffers based on number
                 show_buffer_close_icons = false,
+                -- indicator = {
+                --     style = 'underline'
+                -- },
                 offsets = {
                     {
                         filetype = "NvimTree",

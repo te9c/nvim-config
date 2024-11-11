@@ -124,6 +124,47 @@ return {
     fmta([[
     \int \limits_{<>}^{<>}
     ]], { i(1), i(2) }), { condition = require("utils").in_mathzone }),
+    s({trig="vv", dscr="Expand into \\vec{<>} (math mode only)", snippetType="autosnippet"},
+fmta([[
+\vec{<>}
+]], {i(1)}), {condition = require("utils").in_mathzone }),
+
+    s({trig="ppr", dscr="Expand into \\text{пр}_{<>} (math mode only)", snippetType="autosnippet"},
+fmta([[
+\text{пр}_{<>}
+]], {i(1)}), {condition = require("utils").in_mathzone }),
+
+    s({trig="wht", dscr="Expand into \\widehat{<>} (math mode only)", snippetType="autosnippet"},
+fmta([[
+\widehat{<>}
+]], {i(1)}), {condition = require("utils").in_mathzone }),
+
+--     s({trig="cos", dscr="Expand into \\cos{<>} (math mode only)", snippetType="autosnippet"},
+-- fmta([[
+-- \cos{<>}
+-- ]], {i(1)}), {condition = require("utils").in_mathzone}),
+--
+--
+--     s({trig="sin", dscr="Expand into \\sin{<>} (math mode only)", snippetType="autosnippet"},
+-- fmta([[
+-- \sin{<>}
+-- ]], {i(1)}), {condition = require("utils").in_mathzone}),
+
+
+    s({trig="lff", dscr="Expand into \\left<> <> \\right<> (math mode only)", snippetType="autosnippet"},
+fmta([[
+\left<> \right
+]], {i(1)}), {condition = require("utils").in_mathzone}),
+
+    s({trig="oo", dscr="", snippetType="autosnippet"},
+fmta([[
+\overline{<>}
+]], {i(1)}), {condition = require("utils").in_mathzone}),
+
+    s({trig="wbb", dscr="", snippetType="autosnippet"},
+fmta([[
+\widebar{<>}
+]], {i(1)}), {condition = require("utils").in_mathzone}),
 
     s({trig="...", dscr="Expand int \\dots (math mode only)", snippetType="autosnippet"},
     fmta([[

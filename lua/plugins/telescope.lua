@@ -2,6 +2,7 @@ return {
     "nvim-telescope/telescope.nvim",
     dependencies = {
         "nvim-lua/plenary.nvim",
+        "benfowler/telescope-luasnip.nvim"
     },
     config = function()
         require("telescope").setup({
@@ -25,6 +26,8 @@ return {
             }
         })
 
+        require('telescope').load_extension('luasnip')
+
         -- Keymaps section
         local builtin = require('telescope.builtin')
         vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "find files" }) -- Find files
@@ -36,5 +39,6 @@ return {
         vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = "find diagnostics" })
         vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, { desc = "find lsp symbols in document" })
         vim.keymap.set('n', '<leader>fS', builtin.lsp_workspace_symbols, { desc = "find lsp symbols in workspace" })
+        vim.keymap.set('n', '<leader>fn', require'telescope'.extensions.luasnip.luasnip, { desc = "find snippets" })
     end
 }
