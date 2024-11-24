@@ -34,15 +34,16 @@ opt.cmdheight = 0 -- Auto hide cmdline in statusline.
 opt.laststatus = 3 -- Show only one global statusline at the bottom of the window instead of printing it for each window
 
 -- Tree sitter folding. See lua/plugins/tree-sitter.lua
-opt.foldmethod="expr"
+-- opt.foldmethod="expr"
 -- opt.foldexpr="nvim_treesitter#foldexpr()"
-opt.foldenable=true
-opt.foldlevel=999
+opt.foldenable=false
+-- opt.foldlevel=999
 
 opt.showtabline = 2 -- Always show tabline. Required for heirline bufferline to work
 
 -- Statuscolumn
 opt.foldcolumn = "auto"
 opt.signcolumn = "yes"
+opt.numberwidth = 1
 
 vim.g.tex_flavor = "latex" -- for correct filetype recognititon for .tex files (for snippets)

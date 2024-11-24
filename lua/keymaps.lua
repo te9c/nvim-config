@@ -78,6 +78,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', 'gd', builtin.lsp_definitions, { desc = "Go to defenition", buffer = bufnr })
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = "Go to declaration", buffer = bufnr })
         vim.keymap.set('n', 'gi', builtin.lsp_implementations, { desc = "Go to implemenation", buffer = bufnr })
+        vim.keymap.set('i', '<C-z>', vim.lsp.buf.signature_help, { desc = "signatue help", buffer = bufnr })
+
 
         vim.keymap.set('n', '<leader>ld', vim.diagnostic.open_float, { desc = "Diagnostics hover", buffer = bufnr })
     end

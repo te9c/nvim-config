@@ -36,12 +36,12 @@ return {
                 -- heirline_components.component.nav { surround = { separator = "left" } }
                 heirline_components.component.nav()
             },
-            statuscolumn = { -- UI left column
-                init = function(self) self.bufnr = vim.api.nvim_get_current_buf() end,
-                heirline_components.component.foldcolumn(), -- :h foldcolumn
-                heirline_components.component.signcolumn(),
-                heirline_components.component.numbercolumn(),
-            },
+            -- statuscolumn = { -- UI left column
+            --     init = function(self) self.bufnr = vim.api.nvim_get_current_buf() end,
+            --     heirline_components.component.foldcolumn(), -- :h foldcolumn
+            --     heirline_components.component.signcolumn(),
+            --     heirline_components.component.numbercolumn(),
+            -- },
             -- tabline = {
             --     hl = { fg = "fg", bg = "bg" },
             --     heirline_components.component.tabline_conditional_padding(),

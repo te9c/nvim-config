@@ -9,6 +9,13 @@ return {
             -- nvim-tree integration.
             sync_root_with_cwd = false,
             respect_buf_cwd = false,
+            view = {
+                float = {
+                    enable = true,
+                },
+                number = true,
+                relativenumber = true,
+            },
             -- update_focused_file = {
             --     enable = true,
             --     update_root = true,
