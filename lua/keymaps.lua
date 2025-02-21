@@ -52,6 +52,7 @@ vim.keymap.set('n', '<C-)>', ':bnext<CR>', { silent = true, desc = "Go to the ne
 
 -- vim.keymap.set('n', '<leader>c', ':bd<CR>', { silent = true, desc = "Close current buffer" })
 -- This keymap is defined in lua/plugins/mini-bufremove.lua
+--
 
 -- Tab control
 -- I personally doesn't often use tabs, but i will keep this mappings, if i would like to try tab functional.
