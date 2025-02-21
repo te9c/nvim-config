@@ -7,10 +7,11 @@ local opt = vim.opt
 vim.g.loaded_netrw       = 1
 vim.g.loaded_netrwPlugin = 1
 
-opt.background = "dark" -- "dark" or "light", used for highlight colors
-vim.cmd.colorscheme("desert") -- setting colorscheme
-vim.cmd("hi StatusLine ctermbg=black ctermfg=white guifg=white guibg=#000001")
-vim.cmd("hi TabLineFill guifg=white guibg=#000001 ctermbg=black ctermfg=white")
+opt.background = "light" -- "dark" or "light", used for highlight colors
+-- vim.cmd.colorscheme("desert") -- setting colorscheme
+vim.cmd.colorscheme("delek")
+-- vim.cmd("hi StatusLine ctermbg=black ctermfg=white guifg=white guibg=#000001")
+-- vim.cmd("hi TabLineFill guifg=white guibg=#000001 ctermbg=black ctermfg=white")
 
 opt.number = true -- Show line number
 opt.relativenumber = true -- Show relative line number to the cursor
@@ -47,3 +48,6 @@ opt.signcolumn = "yes"
 opt.numberwidth = 1
 
 vim.g.tex_flavor = "latex" -- for correct filetype recognititon for .tex files (for snippets)
+
+opt.wrap = false
+opt.showmode = false

@@ -7,6 +7,8 @@ return {
         "hrsh7th/cmp-cmdline", -- source: cmdline suggestions
         "micangl/cmp-vimtex", -- source: vimtex
 
+        "hrsh7th/cmp-path",
+
         'L3MON4D3/LuaSnip', -- Snippet engine
         "saadparwaiz1/cmp_luasnip", -- Snippet engine support for nvim-cmp
 
@@ -45,7 +47,8 @@ return {
                 -- { name = 'snippy' }, -- For snippy users.
             }, {
                 { name = 'buffer' },
-                { name = 'vimtex' }
+                { name = 'vimtex' },
+                { name = 'path' },
             }),
 
             view = {
