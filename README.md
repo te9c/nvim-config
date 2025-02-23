@@ -20,6 +20,8 @@ familliar with it from my astronvim config.
 
 ## Plugins
 
+`deprecated`
+
  - [Better escape](https://github.com/max397574/better-escape.nvim). Reduces
  delay when using jj exit combination.
  - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons). Adds
@@ -43,7 +45,7 @@ familliar with it from my astronvim config.
  plugin. I've tried to use [coq_nvim](https://github.com/ms-jpq/coq_nvim), but
  IMHO nvim-cmp is better, cause main advantage of coq_nvim is speed, but
  nvim-cmp is works fast too.
- - [gitsigns](https://github.com/lewis6991/gitsigns.nvim). Adds git signs in statuscolumn. Looks like useful plugin, but I need to see it's docs to understand all of this colors. *RESEARCH REQUIRED*.
+ - [gitsigns](https://github.com/lewis6991/gitsigns.nvim). Adds git signs in statuscolumn. Looks like useful plugin, but I need to see it's docs to understand all of this colors.
  - [heirline](https://github.com/rebelot/heirline.nvim), [heirline-components](https://github.com/Zeioth/heirline-components.nvim). Engine for creating custom statusbars, winbars, statuscolumns. Very hard plugin to configure, but it gives cool statusbars at the end.
  - [highlight-colors](https://github.com/brenoprata10/nvim-highlight-colors). Adds real-time color highlighting.
  - [lspconfig](https://github.com/neovim/nvim-lspconfig)
