@@ -13,14 +13,27 @@
 
 -- C++ Compile and run
 function StripExtension(path) return path:sub(0, #path - 4) end
+
 function GetFileName(url) return url:match "^.+/(.+)$" end
+
+local function strip_filename(path)
+    path = string.reverse(path)
+    local slash_pos = string.find(path, "/")
+    if slash_pos == nil then
+        path = ""
+    else
+        path = string.sub(path, slash_pos + 1)
+    end
+    path = string.reverse(path)
+    return path
+end
 
 local compilatorCommand = "g++"
 local compilationArgs = {
-  "-gdwarf-4",
-  "-Wall",
-  "-Wextra",
-  "-std=c++2a",
+    "-gdwarf-4",
+    "-Wall",
+    "-Wextra",
+    "-std=c++2a",
 }
 local direction = "float"
 
@@ -28,50 +41,51 @@ local direction = "float"
 -- local outputPath = StripExtension(vim.api.nvim_buf_get_name(0))
 
 local Compile = function()
-  local outputPath = StripExtension(vim.api.nvim_buf_get_name(0))
-  local cmd = compilatorCommand .. " "
-  for _, v in pairs(compilationArgs) do
-    cmd = cmd .. v .. " "
-  end
-  local path = vim.api.nvim_buf_get_name(0)
-  cmd = cmd .. path .. " -o " .. outputPath
-  vim.cmd('TermExec cmd="' .. cmd .. '" direction="' .. direction .. '"')
+    local cmd = "cd " .. strip_filename(vim.api.nvim_buf_get_name(0)) .. " && " .. compilatorCommand .. " "
+    for _, v in pairs(compilationArgs) do
+        cmd = cmd .. v .. " "
+    end
+    local outputName = StripExtension(GetFileName(vim.api.nvim_buf_get_name(0)))
+    cmd = cmd .. GetFileName(vim.api.nvim_buf_get_name(0)) .. " -o " .. outputName
+    vim.cmd('TermExec cmd="' .. cmd .. '" direction="' .. direction .. '"')
 end
 
 local CompileAndRunCpp = function()
-  local outputPath = StripExtension(vim.api.nvim_buf_get_name(0))
-  local cmd = compilatorCommand .. " "
-  for _, v in pairs(compilationArgs) do
-    cmd = cmd .. v .. " "
-  end
-  local path = vim.api.nvim_buf_get_name(0)
-  cmd = cmd .. path .. " -o " .. outputPath .. " && " .. outputPath
+    local cmd = "cd " .. strip_filename(vim.api.nvim_buf_get_name(0)) .. " && " .. compilatorCommand .. " "
+    for _, v in pairs(compilationArgs) do
+        cmd = cmd .. v .. " "
+    end
+    local outputName = StripExtension(GetFileName(vim.api.nvim_buf_get_name(0)))
+    cmd = cmd .. GetFileName(vim.api.nvim_buf_get_name(0)) .. " -o " .. outputName .. " && " .. "./" .. outputName
 
-  -- local run = Terminal:new({ cmd = cmd, direction = 'float',})
-  vim.cmd('TermExec cmd="' .. cmd .. '" direction="' .. direction .. '"')
+    -- local run = Terminal:new({ cmd = cmd, direction = 'float',})
+    vim.cmd('TermExec cmd="' .. cmd .. '" direction="' .. direction .. '"')
 end
 
 local RunPython = function()
-  local cmd = "python3 "
-  local path = vim.api.nvim_buf_get_name(0)
-  cmd = cmd .. path
-  vim.cmd('TermExec cmd="' .. cmd .. '" direction="' .. direction .. '"')
+    local cmd = "python3 "
+    local path = vim.api.nvim_buf_get_name(0)
+    cmd = cmd .. path
+    vim.cmd('TermExec cmd="' .. cmd .. '" direction="' .. direction .. '"')
 end
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-  pattern = { "*.cpp" },
-  desc = "Compile and run cpp file",
-  callback = function(args) vim.keymap.set("n", "<leader>tr", CompileAndRunCpp, { desc = "ToggleTerm compile and run", buffer=args.buf }) end,
+    pattern = { "*.cpp" },
+    desc = "Compile and run cpp file",
+    callback = function(args) vim.keymap.set("n", "<leader>tr", CompileAndRunCpp,
+            { desc = "ToggleTerm compile and run", buffer = args.buf }) end,
 })
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-  pattern = { "*.cpp" },
-  desc = "Compile cpp file",
-  callback = function(args) vim.keymap.set("n", "<leader>tc", Compile, { desc = "ToggleTerm compile", buffer=args.buf }) end,
+    pattern = { "*.cpp" },
+    desc = "Compile cpp file",
+    callback = function(args) vim.keymap.set("n", "<leader>tc", Compile, { desc = "ToggleTerm compile", buffer = args
+        .buf }) end,
 })
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-  pattern = { "*.py" },
-  desc = "Run python",
-  callback = function(args) vim.keymap.set("n", "<leader>tr", RunPython, { desc = "ToggleTerm compile and run", buffer=args.buf }) end,
+    pattern = { "*.py" },
+    desc = "Run python",
+    callback = function(args) vim.keymap.set("n", "<leader>tr", RunPython,
+            { desc = "ToggleTerm compile and run", buffer = args.buf }) end,
 })
