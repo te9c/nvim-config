@@ -35,6 +35,12 @@ return {
                     capabilities = capabilities
                 }
             end,
+            -- ["clangd"] = function ()
+            --     local lspconfig = require("lspconfig")
+            --     local capabilities = require('cmp_nvim_lsp').default_capabilities()
+            --
+            -- end
+            --
             -- Next, you can provide a dedicated handler for specific servers.
             -- For example, a handler override for the `rust_analyzer`:
             -- ["rust_analyzer"] = function ()

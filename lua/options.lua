@@ -51,3 +51,8 @@ vim.g.tex_flavor = "latex" -- for correct filetype recognititon for .tex files (
 
 opt.wrap = false
 opt.showmode = false
+
+opt.cursorline = true
+opt.cursorcolumn = true
+
+vim.diagnostic.config({ virtual_text = true })
