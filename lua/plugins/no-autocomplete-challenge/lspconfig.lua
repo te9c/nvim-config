@@ -52,5 +52,7 @@ return {
             },
             capabilities = capabilities
         }
+        -- lspconfig.pyright.setup{}
+        lspconfig.pylsp.setup {}
     end
 }
