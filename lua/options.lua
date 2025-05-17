@@ -55,4 +55,9 @@ opt.showmode = false
 opt.cursorline = true
 opt.cursorcolumn = true
 
-vim.diagnostic.config({ virtual_text = true })
+vim.diagnostic.config({
+    virtual_text = false,
+    virtual_lines = false,
+    underline = false,
+    signs = false
+})
