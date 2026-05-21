@@ -91,7 +91,7 @@ return {
                     -- end)
                 end,
                 cwd = '${workspaceFolder}',
-                stopOnEntry = true,
+                stopOnEntry = false,
                 args = {},
                 runInTerminal = true,
             }

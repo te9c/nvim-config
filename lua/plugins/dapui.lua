@@ -8,6 +8,14 @@ return {
         local dapui = require('dapui')
         local dap = require('dap')
         dapui.setup()
+        -- dapui.setup {
+        --     element_mappings = {
+        --         stacks = {
+        --             open = "<CR>",
+        --             expand = "o",
+        --         }
+        --     }
+        -- }
 
         dap.listeners.before.attach.dapui_config = function ()
             dapui.open()

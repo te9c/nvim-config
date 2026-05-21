@@ -4,19 +4,20 @@ return {
     --     autostart = false
     -- },
     config = function ()
-        local lspconfig = require 'lspconfig'
+        -- local lspconfig = vim.lsp.config
 
         -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
         -- capabilities.textDocument.completion.completionItem.snippetSupport = false
 
-        lspconfig.clangd.setup{
+        vim.lsp.config('clangd', {
             cmd = {
                 '/Users/te9c/.local/share/lsp_servers/clangd/clangd_20.1.0/bin/clangd',
                 '-j=4',
                 -- '--malloc-trim',
                 '--pch-storage=memory'
             },
-        }
+        })
+
         lspconfig.lua_ls.setup{
             on_init = function(client)
                 if client.workspace_folders then
@@ -51,7 +52,9 @@ return {
             },
             capabilities = capabilities
         }
+        --
         -- lspconfig.pyright.setup{}
+
         lspconfig.pylsp.setup {}
     end
 }
